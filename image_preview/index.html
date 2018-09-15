@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>A Title</title>
+    </head>
+
+    <body>
+        <h1>This is a heading</h1>
+        <p>Note we can deliver different forms depending on the situation</p>
+        <p>With no image in the db we can show an 'add' form with the plus icon</p>
+        <hr/>
+        <p>Please fill in this form (click the add button)</p>
+        <p>This approach documented <a href="https://www.webtrickshome.com/faq/how-to-display-uploaded-image-in-html-using-javascript">here</a></p>
+        <form method="POST" enctype="multipart/form-data">
+            <p><label for="file" style="cursor: pointer;"><img src="plus.svg" width=10%></label></p>
+            <input type="file" accept="image/*" name="image" id="file" style="display: none">
+            <p>Once the file is uploaded there will be no confirmation so we need
+               to add something:
+            </p>
+            <img id="output" width="200"><!-- this will need a JS event handler -->
+            <p><span id="status_text"></span></p>
+        </form>
+        <hr/>
+        <p>If we have a picture in the database we can default to showing the 
+           image and enabling the crop icon button.</p>
+        <p>Clicking the crop button would load a third version of the form with
+           x and y coordinate trackers.
+        </p>
+        <p>We can use <a href="https://stackoverflow.com/questions/50895909/submit-a-form-and-get-a-json-response-without-jquery">AJAX</a> to submit the form without leaving (or reloading)
+           the page
+        </p>
+        <script src="app.js"></script>
+    </body>
+</html>
