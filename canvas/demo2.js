@@ -1,11 +1,23 @@
 const statusText = document.querySelector('#status');
+const codeText = document.querySelectorAll('code');
 
 statusText.style.padding = '5px';
 statusText.style.color = 'aquamarine';
 statusText.style.backgroundColor = 'teal';
 statusText.textContent = "js loaded!";
 
+for (let i = 0; i < codeText.length; i++) {
+    codeText[i].style.padding = '1px';
+    codeText[i].style.paddingLeft = '3px';
+    codeText[i].style.paddingRight = '3px';
+    codeText[i].style.color = 'limegreen';
+    codeText[i].style.backgroundColor = 'black';
+}
 
+
+/* Canvas a: Rect
+   --------------
+*/
 const canvas = document.querySelector('#canvas2a');
 const context = canvas.getContext('2d'); // -> CanvasRenderingContext2D object
 
@@ -21,7 +33,9 @@ context.strokeRect(70, 40, 180, 130);
 context.clearRect(40, 100, 50, 50)
 
 
-
+/* Canvas b: Path
+   --------------
+*/
 const canvas_b = document.querySelector('#canvas2b');
 const context_b = canvas_b.getContext('2d');
 canvas_b.style.border = '1px solid red';
@@ -43,8 +57,10 @@ context_b.closePath();
 context_b.stroke();
 
 
-
-const canvas_c = document.querySelector('#canvas2c');
+/* Canvas c: Arcs
+   --------------
+*/
+const canvas_c = document.querySelector('#canvas2ci');
 const context_c = canvas_c.getContext('2d');
 canvas_c.style.border = '1px solid green';
 
@@ -80,3 +96,13 @@ context_c.arc(center_x + eye_x_offset, eye_height, radius * 0.15, start_angle, e
 context_c.fill();
 
 
+const canvas_c2 = document.querySelector('#canvas2cii');
+const context_c2 = canvas_c2.getContext('2d');
+canvas_c2.style.border = '1px solid green';
+
+context_c2.strokeStyle = black;
+
+context_c2.beginPath();
+context_c2.moveTo(center_x, center_y);
+context_c2.arcTo(center_x + 25, center_y + 10, center_x - 50, center_y - 15, 35);
+context_c2.stroke();
