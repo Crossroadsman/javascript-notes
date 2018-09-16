@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Canvas Demo 2</title>
+    </head>
+
+    <body>
+        <h1>Canvas Demo 2</h1>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes">Mozilla demo</a></p>
+        <p><span id="status"></span></p>
+        <h2>Rect</h2>
+        <p>Unlike SVG, canvas has only one primitive polygon: rectangle.</p>
+        <p>We can draw using <code>fillRect</code>, <code>strokeRect</code>
+        and <code>clearRect</code>.</p>
+        <p>rects draw immediately to the context (unlike paths)</p>
+        <canvas id="canvas2a" width="300px" height="200px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <h2>Path</h2>
+        <p>A path is a list of points, connected by segments of lines.</p>
+        <p>The lines can be joined with straight or curved lines.</p>
+        <p>Each segment can be styled differently.</p>
+        <p>A path, or subpath, can be closed.</p>
+        <h3>Process</h3>
+        <ol>
+            <li>Begin a path (<code>beginPath()</code>)</li>
+            <li>Move to the initial position using <code>moveTo</code></li>
+            <li>Use drawing commands (e.g., <code>lineTo()</code>to draw into the path</li>
+            <li>Issue <code>closePath()</code> to add a straight line to close the path</li>
+            <li>Use <code>stroke</code> or <code>fill</code> to render the path</li>
+        </ol>
+        <canvas id="canvas2b" width="300px" height="200px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <h2>Arc</h2>
+        <canvas id="canvas2c" width="300px" height="200px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <script src="demo2.js"></script>
+    </body>
+</html>
