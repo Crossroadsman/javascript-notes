@@ -39,12 +39,24 @@
             canvas will ignore the fallback content
         </canvas>
 
-        <h2>Arc</h2>
-        <canvas id="canvas2c" width="300px" height="200px">
+        <h2>Arc and arcTo</h2>
+        <p><code>arc()</code></p>
+        <canvas id="canvas2ci" width="300px" height="200px">
             Fallback code goes here for browsers that do not support the
             canvas tag (IE pre v9 and Lynx etc). Browsers that support
             canvas will ignore the fallback content
         </canvas>
+        <p><code>arcTo()</code></p>
+        <canvas id="canvas2cii" width="300px" height="200px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <h2>Other Curves</h2>
+        <p>There are also <em>Bézier</em> curves in quadratic 
+           (<code>quadraticCurve(cpx, cpy, x1, y1, x2, y2)</code>) and
+           cubic varieties (<code>bezierCurve(cpx1, cpy1, cpx2, cpy2, x1, y1, x2, y2)</code>).</p>
 
         <script src="demo2.js"></script>
     </body>
