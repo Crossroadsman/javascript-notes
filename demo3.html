@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Canvas Demo 3: Images</title>
+    </head>
+
+    <body>
+        <h1>Canvas Demo 3: Images</h1>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images">Mozilla demo</a></p>
+        <p><span id="status"></span></p>
+        <h2>Importing Images</h2>
+        <p>Importing images into a canvas is a two-step process:.</p>
+        <ol>
+          <li>Get a reference to an image (e.g., <code>HTMLImageElement</code>)</li>
+          <li>Draw the image to the canvas using <code>drawImage()</code></li>
+        </ol>
+        <h3>Get reference to Image</h3>
+        <h4>Images on the same page</h4>
+        <p>Get a reference to the images on the page using one of the following:</p>
+        <ul>
+          <li><code>document.images</code></li>
+          <li><code>document.querySelectorAll('image')</code></li>
+          <li><code>document.querySelector('#{id}')</code></li>
+        </ul>
+        <p>Example:</p>
+        <p>Here is an image on the page</p>
+        <img src="demo3_1.jpg" width="50%">
+        <p>Now here is a canvas into which we are drawing the specified image:</p>
+        <canvas id="canvas3" width="300px" height="200px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <script src="demo3.js"></script>
+    </body>
+</html>
