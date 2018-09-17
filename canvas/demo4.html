@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Canvas Demo 4: Transformations</title>
+    </head>
+
+    <body>
+        <h1>Canvas Demo 4: Transformations</h1>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Transformations">Mozilla demo</a></p>
+        <p><span id="status"></span></p>
+        
+        <h2>Canvas State</h2>
+        <p>Canvas state is stored on a stack. Every time the canvas is
+           <code>save</code>d, the current stage is pushed onto the stack.
+           Each <code>restore</code> pops the most recent saved state from the
+           stack.
+        </p>
+        <p>The state comprises:</p>
+        <ul>
+          <li>Any transformations that have been applied;</li>
+          <li>The current value of various atttributes</li>
+          <li>The current clipping path</li>
+        </ul>
+
+        <h2>Translations</h2>
+        <p><code>translate(x, y)</code> : move the canvas</p>
+        <p>Before:</p>
+        <canvas id="canvas4" width="200px" height="300px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+        <p>After:</p>
+        <canvas id="canvas4b" width="200px" height="300px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <h2>Rotation</h2>
+        <p>We can use rotation just like we use translate.</p>
+        <p>We can also combine rotation and translation, for example, placing
+           an element, then translating to the center of the element to
+           perform the rotation (so that the element appears to rotate in place)
+           then translate back to 0,0.
+        </p>
+
+        <script src="demo4.js"></script>
+    </body>
+</html>

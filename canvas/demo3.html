@@ -9,12 +9,19 @@
         <h1>Canvas Demo 3: Images</h1>
         <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Using_images">Mozilla demo</a></p>
         <p><span id="status"></span></p>
+        
         <h2>Importing Images</h2>
         <p>Importing images into a canvas is a two-step process:.</p>
         <ol>
           <li>Get a reference to an image (e.g., <code>HTMLImageElement</code>)</li>
           <li>Draw the image to the canvas using <code>drawImage()</code></li>
         </ol>
+        <p><strong>Important:</strong> the image needs to be loaded before drawing
+           to the canvas (otherwise the draw may fail silently or the browser might
+           issue an exception). Ensure this by either wrapping the draw command in
+           an event listener (<code>'load'</code>) or by 
+           <a href="https://perishablepress.com/3-ways-preload-images-css-javascript-ajax/">preloading images</a>.
+        </p>
         <h3>Get reference to Image</h3>
         <h4>Images on the same page</h4>
         <p>Get a reference to the images on the page using one of the following:</p>
@@ -27,7 +34,40 @@
         <p>Here is an image on the page</p>
         <img src="demo3_1.jpg" width="50%">
         <p>Now here is a canvas into which we are drawing the specified image:</p>
+        <p>(Note that the image is being drawn into the canvas at 100% not the
+           scaled size it was drawn into the <code>img</code> element.
+        </p>
         <canvas id="canvas3" width="300px" height="200px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <h2>Scaling Images</h2>
+        <p>A second variant of the <code>drawImage</code> method enables
+           scaling of an image.
+        </p>
+        <p>The syntax is as follows:</p>
+        <p><code>drawImage(image, x, y, width, height)</code></p>
+        <p>Example:</p>
+        <canvas id="canvas3b" width="300px" height="200px">
+            Fallback code goes here for browsers that do not support the
+            canvas tag (IE pre v9 and Lynx etc). Browsers that support
+            canvas will ignore the fallback content
+        </canvas>
+
+        <h2>Slicing (Cropping) Images</h2>
+        <p>A third variant of the <code>drawImage</code> method enables
+           cropping of an image.
+        </p>
+        <p>The syntax is as follows:</p>
+        <p><code>drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</code></p>
+        <p>Where sx, sy, sWidth, sHeight describe the cropped portion of the source
+           image, and dx, dy, dWidth, dHeight describe the position and sizing in
+           the destination (the canvas) 
+        </p>
+        <p>Example:</p>
+        <canvas id="canvas3c" width="300px" height="200px">
             Fallback code goes here for browsers that do not support the
             canvas tag (IE pre v9 and Lynx etc). Browsers that support
             canvas will ignore the fallback content
