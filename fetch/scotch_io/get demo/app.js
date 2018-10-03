@@ -41,7 +41,9 @@ const err = (data) => {
     console.log(data);
 }
 
+console.log("Starting fetch request");
 fetch(url)
 .then(jsonify)
 .then(response)
 .catch(err);
+console.log("Completed making fetch request");
