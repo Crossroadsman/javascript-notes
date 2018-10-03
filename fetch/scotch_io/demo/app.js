@@ -22,6 +22,9 @@ const authorToLi = (author) => {
 }
 
 const jsonify = (fetch_response) => {
+    /* the fetch data inside the promise response isn't json but instead is
+       an object to which we can apply various methods, including .json()
+       which gives us the json values */
     return fetch_response.json();
 }
 
