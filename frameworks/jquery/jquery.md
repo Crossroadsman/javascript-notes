@@ -28,6 +28,59 @@ TODO
 `window.onload` means the page has fully loaded, `document.ready` means the DOM 
 is available for manipulation.
 
+We can use `document.ready` as follows:
+```javascript
+$(document).ready( function() {
+   console.log('READY');
+});
+```
+
+Wrapping in `document.ready` is so common in jQuery that `$()` is an alias for
+`$(document).ready()`, thus we can rewrite the previous example as:
+```javascript
+$( function() {
+   console.log('READY');
+});
+```
+
+#### Selection Basics ####
+
+In jQuery (and in JS), selectors will only contain elements that existed at the
+time the selection was made.
+
+Note that jQuery selectors (like JS selectors, at least 
+`document.getElementsByClassName` and `document.querySelectorAll`) always 
+return an object, even if there were no matches.
+
+This means that any selection, even if empty, will be truthy. This impacts how
+we write conditional code based on whether selectors find any matches.
+
+Example:
+```javascript
+if ( $('#NonExistentId').length ) {
+   // code goes here
+}
+```
+
+jQuery selectors return jQuery objects not DOM nodes nor HTML objects.
+
+This allows us to use jQuery-specific methods to modify selections:
+```javascript
+const listItems = $('li');
+const specials = listItems.filter('.special');
+const notSpecials = listItems.not('.special');
+const hasSpans = listItems.has('span');
+```
+
+##### [`filter`][jq_api_01] vs [`has`][jq_api_02] #####
+Both methods reduce a selection by the supplied argument. In `filter` the 
+supplied argument can be either a selector to match, or a function. In
+`has` the supplied argument must be a selector to match.
+
+For `filter`, a selector argument should be a selector on the filtered object
+while for `has`, a selector argument should be a selector on descendents of
+the filtered object.
+
 
 ### Hiding an Element ###
 
@@ -137,10 +190,6 @@ In jQuery, `this` is an alias for the `event.target`.
 
 
 
-
-
-
-
 jQuery-Specific Features
 ------------------------
 
@@ -156,3 +205,5 @@ $('#flashMessage').hide().fadeIn(1000).delay(3000).slideUp(750);
 
 
 [js_01]: https://github.com/Crossroadsman/javascript-notes/blob/master/javascript.md
+[jq_api_01]: https://api.jquery.com/filter/ 'jQuery API: filter()'
+[jq_api_02]: https://api.jquery.com/has/ 'jQuery API: has()'
