@@ -5,6 +5,7 @@
 2. [Installation](#s2)
 3. [Executing Grunt](#s3)
 4. [Setting up a Grunt Project](#s4)
+X. [Footnotes](#sX)
 
 
 <a name="s1"> </a>
@@ -106,8 +107,64 @@ You can install gruntplugins the same way:
 ```console
 $ npm install grunt-contrib-jshint --save-dev
 ```
+
+### Gruntfile ###
+This is a JS or CoffeeScript file, comprising:
+- "wrapper" function,
+- project and task configuration,
+- loading Grunt plugins and tasks,
+- custom tasks
+
+Example:
+```javascript
+module.exports = function(grunt) {
+
+  // Project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+      build: {
+        src: 'src/<%= pkg.name %>.js',
+        dest: 'build/<%= pkg.name %>.min.js'
+      }
+    }
+  });
+  
+  // Load the plugin that provides the "uglify" task
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  
+  // Default task(s)
+  grunt.registerTask('default', ['uglify']);
+
+};
+```
+
+#### The Wrapper Function ####
+- All Grunt code must be specified inside this function.
+
+#### Project and Task Configuration ####
+- Most Grunt tasks rely on configuration data defined in an object passed to 
+  the grunt.initConfig method.
+- Any arbitrary data can be stored inside the configuration object.
+- Any valid JS (not just JSON) can be used.
+- Most Grunt tasks (like uglify, above) expect their configuration to be 
+  specified in a property with the same name.
+
+#### Loading Plugins and Tasks ####
+- Many commonly used tasks like concatenation, minification, and linting are
+  available as grunt plugins.
+- As long as a plugin:
+  - is specified in `package.json` as a dependency, and
+  - has been installed via `npm install`,
+  it can be enabled inside the Gruntfile with a simple command
+
+
 12345678901234567890123456789012345678901234567890123456789012345678901234567890
 
+<a name="sX"> </a>
 X: Footnotes
 ------------
 1. <a name="install_01> </a> The Grunt CLI only calls the appropriate
