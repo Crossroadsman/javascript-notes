@@ -161,6 +161,25 @@ module.exports = function(grunt) {
   - has been installed via `npm install`,
   it can be enabled inside the Gruntfile with a simple command
 
+#### Custom Tasks ####
+- Grunt can be configured to run one or more tasks by defining a 'default'
+  task. In the above example, running `grunt` at the command line, without
+  specifying a task, will run the `uglify` task. This is equivalent to
+  executing `grunt uglify` or `grunt default`.
+- Any number of tasks (with or without args) can be specified in the array.
+- If the project requires tasks not provided by a Grunt plugin, you can define
+  custom tasks in JS, either saved as an external `.js` file (loaded via the
+  `grunt.loadTasks` method) or even written inline:
+  ```javascript
+  module.exports = function(grunt) {
+  
+    // A very basic default task
+    grunt.registerTask('default', 'Log some stuff', function() {
+      grunt.log.write('Logging some stuff...').ok();
+    });
+    
+  };
+  ```
 
 12345678901234567890123456789012345678901234567890123456789012345678901234567890
 
