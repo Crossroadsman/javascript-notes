@@ -241,4 +241,7 @@ myObject.f();
 
 `this` refers to `myObject`
 
+### See also ###
+
+A good article: [Gentle explanation of 'this' keyword in JavaScript](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
 
