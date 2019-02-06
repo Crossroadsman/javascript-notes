@@ -244,4 +244,5 @@ myObject.f();
 ### See also ###
 
 A good article: [Gentle explanation of 'this' keyword in JavaScript](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
+Even better: Kyle Simpson's **You Don't Know JS: `this` and Object Prototypes** [Chapter 1: `this` Or That?](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch1.md) then  [Chapter 2: `this` All Makes Sense Now!](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md)
 
