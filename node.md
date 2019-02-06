@@ -31,9 +31,46 @@ Installation
 7. remove `.npm` (directory) from  
    `~/`
 
-### Install nvm ###
+### Installation ###
+- Either curl/get the nvm install script (downloads nvm, installs node, updates 
+  bash profile):  
+  ```console
+  $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+  ```
+
+- or install manually:  
+  1. Install nvm (Node Version Manager):  
+     1. determine the latest tagged release version from the github page (in 
+        this example v0.34.0)
+     2. clone from the tag:  
+        ```console
+        ~ $ git clone -b v0.34.0 https://github.com/creationix/nvm.git .nvm
+        ```
+     You should end this stage with a clone of the nvm git repo as of the 
+     tagged version in a repo with no branches and a single tag
+  2. Add the following lines to bash profile (~/.bashrc or ~/.profile) (by 
+     default macOS has `.profile` but not `.bashrc`):  
+     ```shell
+     # make the nvm directory env variable available to shell and children
+     export NVM_DIR="$HOME/.nvm"
+     
+     # the following line tests (`[]` builtin works like the `test` command)
+     # that the specified file exists and has a size > 0 (returns true (0) if
+     # the test passes, false (1) otherwise) then conditionally source the
+     # nvm.sh file to load nvm
+     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+     # then to enable bash completion for nvm commands:
+     [ -s "$NVM_DIR/bash_completion.sh" ] && \. "$NVM_DIR/bash_completion"
+     ```
+   3. Close and reload the shell
+   4. Install node (this will download, compile, install the latest version of 
+      node):
+      ```console
+      $ nvm install node
+      ```
 
 See:
-https://yoember.com/nodejs/the-best-way-to-install-node-js/
-https://medium.com/@itsromiljain/the-best-way-to-install-node-js-npm-and-yarn-on-mac-osx-4d8a8544987a
+- https://yoember.com/nodejs/the-best-way-to-install-node-js/
+- https://medium.com/@itsromiljain/the-best-way-to-install-node-js-npm-and-yarn-on-mac-osx-4d8a8544987a
 
