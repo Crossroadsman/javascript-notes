@@ -6,6 +6,9 @@ Node.js
 Installation
 ------------
 
+### Prerequisites (macOS) ###
+- Xcode or Xcode command line tools
+
 ### Remove Old Versions/Versions Installed Using Other Methods ###
 
 1. `brew uninstall node`
