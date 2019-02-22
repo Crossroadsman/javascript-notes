@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Guillotine Demo</title>
+
+    <!-- guillotine files
+         see:
+         https://github.com/matiasgagliano/guillotine
+    -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/guillotine/js/jquery.guillotine.js"></script>
+    <link href="node_modules/guillotine/css/jquery.guillotine.css">
+    <!-- end guillotine -->
+  </head>
+
+  <body>
+    <h1>Guillotine Demo</h1>
+    <p>See <a href="https://github.com/matiasgagliano/guillotine">github</a></p>
+    <div id="my-parent-element" style="width: 80%;">
+      <img id="my-picture" src="img/puppy.jpg">
+    </div>
+    
+    <script>
+      const picture = $('#my-picture');
+      picture.load(function(){
+        // .ready fires when the DOM has loaded, .load fires when all the
+        // elements have loaded. We could bind it to `document` to ensure
+        // that all elements have loaded, but we only really care about
+        // #my-picture, so we've bound to that
+
+        // Instantiate the plugin:
+        picture.guillotine({width: 400, height: 300});
+      });
+    </script>
+  </body>
+</html>
+
