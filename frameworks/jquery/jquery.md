@@ -1,6 +1,12 @@
 jQuery
 ======
 
+DOM Traversal
+-------------
+- `.eq(n)`: reduce the set of matched objects to the one at index `n`.
+- `prev()`/`next()`: get the previous or next sibling.
+
+
 Basic DOM Manipulation
 ----------------------
 
@@ -81,6 +87,24 @@ For `filter`, a selector argument should be a selector on the filtered object
 while for `has`, a selector argument should be a selector on descendents of
 the filtered object.
 
+
+##### jQuery-Specific Selectors #####
+In addition to essentially any valid CSS selector, and many pseudo selectors,
+there are jQuery-specific selectors, such as:
+- input types
+  - `:radio`
+  - `:checkbox`
+  - `:password`
+- odd/even
+  - `:odd`
+  - `:even`
+- visibility
+  - `:visible`
+  - `:hidden`
+- pattern matching. For example:
+  ```javascript
+  $('input[name^="add"]');
+  ```
 
 ### Hiding an Element ###
 
@@ -165,6 +189,11 @@ Notes:
   ```javascript
   $('#my_id').html('<p>I am setting this HTML.</p>');
   ```
+  
+  also:
+  ```javascript
+  $securelinks.attr('target', '_blank');
+  ```
 
 ### Forms ###
 
@@ -174,6 +203,15 @@ Notes:
   ```javascript
   $('#myInputField').val();
   ```
+
+### Loops ###
+jQuery's `each()` takes a function (`f(a, b)`) whose arguments `a` and `b` are 
+the index and value fo the loop's iteration. Example:
+```javascript
+$('li').each( (index, element) => {
+   console.log("at position " + index + " is " + element);
+});
+```
 
 ### Events ###
 
