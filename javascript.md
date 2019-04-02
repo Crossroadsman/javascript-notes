@@ -24,7 +24,7 @@ All values are truthy except:
 `this`
 ------
 The JavaScript context object in which the current code is executing.
-12345678901234567890123456789012345678901234567890123456789012345678901234567890
+
 Its value has nothing to do with the function itself, it is determined by how
 the function is called.
 
